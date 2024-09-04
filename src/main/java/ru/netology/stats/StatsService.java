@@ -2,16 +2,16 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    public int calcSumAllMonthSales(int[] monthSales) {
-        int sum = 0;
+    public long calcSumAllMonthSales(long[] monthSales) {
+        long sum = 0;
         for (int i = 0; i < monthSales.length; i++) {
             sum += monthSales[i];
         }
         return sum;
     }
 
-    public int calcAvgMonthSales(int[] monthSales) {
-        int avgSum = 0;
+    public long calcAvgMonthSales(long[] monthSales) {
+        long avgSum = 0;
         for (int i = 0; i < monthSales.length; i++) {
             avgSum += monthSales[i];
         }
@@ -19,34 +19,34 @@ public class StatsService {
         return avgSum;
     }
 
-    public int calcMonthOfMaxSales(int[] monthSales) {
+    public int calcMonthOfMaxSales(long[] monthSales) {
         int monthOfMaxSales = 0;
 
-
         for (int i = 0; i < monthSales.length; i++) {
-
-
             if (monthSales[i] >= monthSales[monthOfMaxSales]) {
                 monthOfMaxSales = i;
-
             }
         }
         return monthOfMaxSales + 1;
     }
 
-    public int calcMonthOfMinSales(int[] monthSales) {
+    public int calcMonthOfMinSales(long[] monthSales) {
         int monthOfMinSales = 0;
 
         for (int i = 0; i < monthSales.length; i++) {
+
             if (monthSales[i] <= monthSales[monthOfMinSales]) {
                 monthOfMinSales = i;
+
             }
         }
         return monthOfMinSales + 1;
     }
 
-    public int calcMonthesOfUnderAvg(int avgSum, int[] monthSales) {
 
+    public int calcMonthesOfUnderAvg(long[] monthSales) {
+        StatsService statsService = new StatsService();
+        long avgSum = statsService.calcAvgMonthSales(monthSales);
         int monthesOfUnderAvg = 0;
         for (int i = 0; i < monthSales.length; i++) {
             if (monthSales[i] < avgSum) { //
@@ -56,10 +56,10 @@ public class StatsService {
         return monthesOfUnderAvg;
     }
 
-    public int calcMonthesOfOverAvg(int avgSum, int[] monthSales) {
-
+    public int calcMonthesOfOverAvg(long[] monthSales) {
+        StatsService statsService = new StatsService();
+        long avgSum = statsService.calcAvgMonthSales(monthSales);
         int monthesOfOverAvg = 0;
-
         for (int i = 0; i < monthSales.length; i++) {
             if (monthSales[i] > avgSum) { //
                 monthesOfOverAvg++; //
