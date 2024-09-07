@@ -45,8 +45,8 @@ public class StatsService {
 
 
     public int calcMonthesOfUnderAvg(long[] monthSales) {
-        StatsService statsService = new StatsService();
-        long avgSum = statsService.calcAvgMonthSales(monthSales);
+
+        long avgSum = calcAvgMonthSales(monthSales);
         int monthesOfUnderAvg = 0;
         for (int i = 0; i < monthSales.length; i++) {
             if (monthSales[i] < avgSum) { //
@@ -57,8 +57,8 @@ public class StatsService {
     }
 
     public int calcMonthesOfOverAvg(long[] monthSales) {
-        StatsService statsService = new StatsService();
-        long avgSum = statsService.calcAvgMonthSales(monthSales);
+
+        long avgSum = calcAvgMonthSales(monthSales);
         int monthesOfOverAvg = 0;
         for (int i = 0; i < monthSales.length; i++) {
             if (monthSales[i] > avgSum) { //
